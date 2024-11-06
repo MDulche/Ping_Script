@@ -1,27 +1,23 @@
 Made with ChatGPT
 
-This PowerShell script is designed to monitor the network connectivity of a specified IP address or hostname through repeated ping tests and log any failures to a log file. Here’s a summary of its main functionalities and purpose:
+PowerShell Ping Monitoring Script
+This PowerShell script allows you to monitor the accessibility of a target host (by IP address or hostname) through continuous ping tests. The script provides two ways to control when it stops:
 
-1. **Initial Configuration and Execution**: 
-   - The script sets the execution policy to *Unrestricted* to allow unrestricted command execution within the current session.
-   - It prompts the user to input a target IP address or hostname for pinging.
-
-2. **Log File Creation**:
-   - A log file, `ping_log.txt`, is created in the same directory as the script to record only failed pings. The file is configured with UTF-8 encoding.
-
-3. **Ping Loop**:
-   - The script uses an infinite loop to send a ping every second to the specified host.
-   - For each ping test:
-     - On success, a message with a timestamp is displayed, and a counter for successful pings is incremented.
-     - On failure, an error message with the date and time is displayed, and the same message is recorded in the log file. A counter for failed pings is also incremented.
-
-4. **Final Summary**:
-   - When the script is stopped (e.g., manually), a `finally` block logs a final summary of the pings, including the total number of successful and failed pings.
-
-### Purpose:
-This script is particularly useful for monitoring the availability of a server or network device:
-- **Continuous Monitoring**: Ideal for network administrators who need basic, continuous monitoring of a host’s connectivity.
-- **Failure Logging**: Failed pings are logged with timestamps, allowing for easy analysis of any downtime.
-- **Final Report**: At the end, a summary of the results provides an overview of the host's connectivity performance.
-
-In summary, this script is a simple tool for tracking the availability of a network host and detecting connectivity interruptions in real-time.
+Time Limit Mode: The script runs for a specified duration in minutes.
+Key Press Mode: The script runs indefinitely and stops when you press a specific key (default is "Q").
+Features
+Real-Time Monitoring: Continuously pings the specified host and logs any failed pings.
+Log File Creation: Saves failed ping attempts and a summary report to a log file in the script’s directory.
+Flexible Control Options:
+Time Limit Mode: Stops the script after the specified duration (in minutes).
+Key Press Mode: Allows manual interruption by pressing "Q".
+Usage
+Run the Script: Start the script in PowerShell.
+Select Mode: You’ll be prompted to select the stopping method:
+1 for Time Limit: Specify the duration (in minutes) the script should run.
+2 for Key Press: The script will run indefinitely until you press "Q".
+Specify the Target Host: Enter the IP address or hostname of the target for ping monitoring.
+Output
+Console: Displays each ping result, showing successful attempts and failed connections.
+Log File (ping_log.txt): Records all failed ping attempts and, upon exit, provides a summary of successful and failed attempts.
+This script is ideal for monitoring network stability, troubleshooting, and testing connectivity over time, with convenient stopping options tailored to user needs.
