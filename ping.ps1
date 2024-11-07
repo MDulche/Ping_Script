@@ -1,5 +1,5 @@
-# Définir la politique d'exécution en mode "Unrestricted" pour la session actuelle
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process -Force
+# Définir la politique d'exécution pour autoriser le script, uniquement pour cette session
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
 # Choix du mode d'arrêt : durée ou touche
 $choice = Read-Host "Choisissez le mode d'arrêt : '1' pour Limite de Temps, '2' pour Interruption par Touche"
